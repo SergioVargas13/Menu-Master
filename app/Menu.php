@@ -1,0 +1,14 @@
+<?php
+
+namespace App;
+
+use Illuminate\Database\Eloquent\Model;
+
+class Menu extends Model
+{
+    //
+
+    public function productos() {
+        return $this->belongsTomany('App\producto', 'menu_producto', 'menu_id', 'producto_id');
+    }
+}
