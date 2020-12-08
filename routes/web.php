@@ -36,6 +36,7 @@ Route::resource('producto', 'FacturaProductoController');
 Route::resource('pedidos', 'PedidoController');
 Route::resource('mesas', 'MesaController');
 Route::resource('categoria', 'CategoriaController');
+Route::resource('menu', 'MenuController');
 
 Route::middleware('auth')->get('showProducto/{menu_id}','MenuController@showProducto')->name('menu.showProducto');
 Route::middleware('auth')->get('addProducto/{menu_id}','MenuController@addProducto')->name('menu.addProducto');
