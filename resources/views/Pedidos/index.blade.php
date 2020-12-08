@@ -39,7 +39,7 @@
 	           			<input type="submit" value="Editar">
 
 	           		</form>
-
+					   <a method="get" href="{{ route('pedidos.show',['pedido_id'=>$pedido->id]) }}" class=" fa fa-eye btn btn-warning">Ver Productos</a>
 	           	</td>
 
 	           </tr>

@@ -19,7 +19,6 @@ class CreateProductosHasPedidosTable extends Migration
             $table->unsignedBigInteger('producto_id');
             $table->unsignedBigInteger('pedido_id');
             $table->String('comentario');
-
             $table->foreign('producto_id')->references('id')->on('productos');
             $table->foreign('pedido_id')->references('id')->on('pedidos');
             $table->timestamps();

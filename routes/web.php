@@ -36,6 +36,12 @@ Route::resource('producto', 'FacturaProductoController');
 Route::resource('pedidos', 'PedidoController');
 Route::resource('mesas', 'MesaController');
 
+Route::middleware('auth')->get('show/{pedido_id}','PedidoController@show')->name('pedidos.show');
+Route::middleware('auth')->get('addProducto/{pedido_id}','PedidoController@addProducto')->name('pedidos.addProducto');
+Route::middleware('auth')->post('saveProducto','PedidoController@saveProducto');
+Route::middleware('auth')->delete('deleteProducto/{pedido_id}/{producto_id}', 'PedidoController@deleteProducto')->name('pedidos.deleteProducto');
+
+
 Route::any('saludo/{nombre}/{apellido}', function($nombre, $apellido) {
 	echo "Hola $nombre $apellido <br>";
 });
