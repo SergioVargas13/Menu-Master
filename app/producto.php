@@ -18,7 +18,7 @@ class producto extends Model
      public function Facturas() {
         return $this->belongsTomany('App\Factura','facturas_has_productos','producto_id','factura_id');
     }
-    public function Pedido() {
+    public function Pedidos() {
         return $this->belongsToMany(pedido::class);
     }
 }

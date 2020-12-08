@@ -63,6 +63,8 @@ class PedidoController extends Controller
     public function show(pedido $pedido)
     {
         //
+        $pedido=pedido::find($id);
+        return view('pedidos.show', ['pedido'=>$pedido]);
     }
 
     /**
@@ -112,5 +114,30 @@ class PedidoController extends Controller
            $pedido= pedido::find($id);
            $pedido->delete();
               return redirect()->action('pedidoController@index');
+    }
+    public function deleteProducto($pedido_id,$producto_id) {
+        $pedido = pedido::find($pedido_id);
+        $pedido->productos()->detach($producto_id);
+        return redirect()->route('pedidos.show',['pedido_id'=>$pedido_id]);
+    }
+
+    public function addProducto($pedido_id) {
+        $pedido = pedido::find($pedido_id);
+        $ids = $pedido->productos->pluck('id')->toArray();
+        $producto = producto::whereNotIn('id', $ids)->get();
+        return view('pedidos.lista_productos', 
+        ['pedido_id'=>$pedido_id, 'productos'=>$producto]);
+    }
+
+    public function saveProducto(Request $request) {
+        $pedido_id=$request->pedido_id;
+        $pedido = pedido::find($pedido_id);
+        if ($request->producto_id) {
+            foreach($request->producto_id as $id) {
+                $pedido->productos()->attach($id);
+
+            }
+        }
+        return redirect()->route('pedidos.show',['pedido_id'=>$pedido_id]);
     }
 }

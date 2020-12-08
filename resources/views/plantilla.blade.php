@@ -165,12 +165,6 @@
     <!-- /.sidebar -->
   </aside>
 
-<<<<<<< Updated upstream
-<div id="caja" style="background-color:yellow "></div>
-=======
-<div id="caja" style="background-color:yellow; "></div>
->>>>>>> Stashed changes
-
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     @yield('content')
