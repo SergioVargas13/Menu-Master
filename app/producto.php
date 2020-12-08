@@ -3,7 +3,8 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-
+use App\Menu;
+use App\producto;
 class producto extends Model
 {
     //

@@ -150,6 +150,8 @@
                         <li><a href="{{ route('pedidos.index') }}"><i class="fa fa-circle-o"></i>Gestion de Pedidos</a></li>
                         <li><a href="{{ route('mesas.index') }}"><i class="fa fa-circle-o"></i>Gestion de Mesas</a></li>
                         <li><a href="{{ route('factura.index') }}"><i class="fa fa-circle-o"></i>Gestion de Facturas</a></li>
+                        <li><a href="{{ route('categoria.index') }}"><i class="fa fa-circle-o"></i>Gestion de Categorias</a></li>
+                         <li><a href="{{ route('menu.index') }}"><i class="fa fa-circle-o"></i>Gestion de Menus</a></li>
                     @endif
                     @if (Auth::user()->tieneRole('User'))
                         <li><a href="{{ route('user.index') }}"><i class="fa fa-circle-o"></i>Lista de Usuarios</a></li>
