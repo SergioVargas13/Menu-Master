@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\pedido;
+
 use Illuminate\Http\Request;
+use App\pedido;
 use App\producto;
 
 
@@ -62,11 +63,12 @@ class PedidoController extends Controller
      * @param  \App\pedido  $pedido
      * @return \Illuminate\Http\Response
      */
-    public function show(pedido $pedido)
+    public function showProductoP($id)
     {
         //
+
         $pedidos=pedido::find($id);
-        return view('pedidos.show', ['pedido'=>$pedidos]);
+        return view('pedidos.showProductoP', ['pedido'=>$pedidos]);
     }
 
     /**
@@ -117,29 +119,29 @@ class PedidoController extends Controller
            $pedidos->delete();
               return redirect()->action('pedidoController@index');
     }
-    public function deleteProducto($pedido_id,$producto_id) {
+    public function deleteProductoP($pedido_id,$producto_id) {
         $pedidos = pedido::find($pedido_id);
         $pedidos->productos()->detach($producto_id);
-        return redirect()->route('pedidos.show',['pedido_id'=>$pedido_id]);
+        return redirect()->route('pedidos.showProductoP',['pedido_id'=>$pedido_id]);
     }
 
-    public function addProducto($pedido_id) {
+    public function addProductoP($pedido_id) {
         $pedidos = pedido::find($pedido_id);
         $ids = $pedidos->productos->pluck('id')->toArray();
-        $producto = producto::whereNotIn('id', $ids)->get();
-        return view('pedidos.lista_productos', 
-        ['pedido_id'=>$pedido_id, 'productos'=>$producto]);
+        $productos = producto::whereNotIn('id', $ids)->get();
+        return view('pedidos.lista_producto', 
+        ['pedido_id'=>$pedido_id, 'productos'=>$productos]);
     }
 
-    public function saveProducto(Request $request) {
+    public function saveProductoP(Request $request) {
         $pedido_id=$request->pedido_id;
         $pedidos = pedido::find($pedido_id);
-        if ($request->producto_id) {
-            foreach($request->producto_id as $id) {
+        if ($request->productos_id) {
+            foreach($request->productos_id as $id) {
                 $pedidos->productos()->attach($id);
 
             }
         }
-        return redirect()->route('pedidos.show',['pedido_id'=>$pedido_id]);
+        return redirect()->route('pedidos.showProductoP',['pedido_id'=>$pedido_id]);
     }
 }

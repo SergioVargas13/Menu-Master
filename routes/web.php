@@ -43,10 +43,10 @@ Route::middleware('auth')->get('addProductoM/{menu_id}','MenuController@addProdu
 Route::middleware('auth')->post('saveProductoM','MenuController@saveProductoM');
 Route::middleware('auth')->delete('deleteProductoM/{menu_id}/{producto_id}', 'MenuController@deleteProductoM')->name('menu.deleteProductoM');
 
-Route::middleware('auth')->get('show/{pedido_id}','PedidoController@show')->name('pedidos.show');
-Route::middleware('auth')->get('addProducto/{pedido_id}','PedidoController@addProducto')->name('pedidos.addProducto');
-Route::middleware('auth')->post('saveProducto','PedidoController@saveProducto');
-Route::middleware('auth')->delete('deleteProducto/{pedido_id}/{producto_id}', 'PedidoController@deleteProducto')->name('pedidos.deleteProducto');
+Route::middleware('auth')->get('showProductoP/{pedido_id}','PedidoController@showProductoP')->name('pedidos.showProductoP');
+Route::middleware('auth')->get('addProductoP/{pedido_id}','PedidoController@addProductoP')->name('pedidos.addProductoP');
+Route::middleware('auth')->post('saveProductoP','PedidoController@saveProductoP');
+Route::middleware('auth')->delete('deleteProductoP/{pedido_id}/{producto_id}', 'PedidoController@deleteProductoP')->name('pedidos.deleteProductoP');
 
 
 Route::any('saludo/{nombre}/{apellido}', function($nombre, $apellido) {

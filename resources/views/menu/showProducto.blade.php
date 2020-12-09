@@ -19,6 +19,7 @@ width:60%">
                 <tr>
                     <td>Id</td>
                     <td>Nombre del Menu</td>
+                    <td>Opciones</td>
                 </tr>
             </thead>
             <tbody>

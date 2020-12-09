@@ -11,7 +11,7 @@
     <div class="container" align="center"  style="
 width:60%">
     <h1>Ver Producto</h1>
-<a href="{{ route('pedidos.index') }}"><button type="button" class="btn btn-danger">Volver</button></a>
+<a href="{{ route('menu.index') }}"><button type="button" class="btn btn-danger">Volver</button></a>
     <table class="table table-hover">
             <thead class="bg-info">
             <br>

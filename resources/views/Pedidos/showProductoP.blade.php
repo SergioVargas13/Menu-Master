@@ -12,17 +12,17 @@
 
     <div class="container" align="center"  style="
 width:60%">
-    <h1>Ver pedido</h1>
+    <h1>Ver Pedidos</h1>
 <a href="{{ route('pedidos.index') }}"><button type="button" class="btn btn-danger">Volver</button></a>
     <table class="table table-hover">
             <thead class="bg-info">
                 <tr>
                     <td>Id</td>
                     <td>Estado</td>
-                    <td>Sub total</td>
+                    <td>SubTotal</td>
                     <td>Cantidad</td>
                     <td>Fecha</td>
-                    <td>Comentario</td>
+                    <td>Opciones</td>
                 </tr>
             </thead>
             <tbody>
@@ -32,10 +32,9 @@ width:60%">
                 <td>{{$pedido->subtotal}}</td>
                 <td>{{$pedido->cantidad}}</td>
                 <td>{{$pedido->fecha}}</td>
-                <td>{{$pedido->comentario}}</td>
                 <td>
                 @if (Auth::user()->tieneRole('Admin'))
-                    <a class="btn btn-success" href="{{ route('pedidos.addProducto',['pedido_id'=>$pedido->id])}}">Add Productos</a>
+                    <a class="btn btn-success" href="{{ route('pedidos.addProductoP',['pedido_id'=>$pedido->id])}}">Agregar Productos</a>
                 @endif
                 </td>
 
@@ -67,10 +66,7 @@ width:60%">
                 </tr>
                 @if (Auth::user()->tieneRole('Admin'))
                 <td>
-                <form method="POST" action="{{ route('pedidos.deleteProducto', ['pedido_id'=>$pedido->id, 'producto_id'=>$p->id]) }}">
-                {{ csrf_field() }}
-                <td> 
-<form method="POST" action="{{ route('pedidos.deleteProducto', ['pedido_id'=>$pedido->id, 'producto_id'=>$p->id]) }}">
+<form method="POST" action="{{ route('pedidos.deleteProductoP', ['pedido_id'=>$pedido->id, 'producto_id'=>$p->id]) }}">
 {{ csrf_field() }}
  <input type="hidden" name="_method" value="DELETE">
  <button class="fa fa-trash btn btn-danger btn-sm">Eliminar</button>
@@ -86,3 +82,5 @@ width:60%">
 </body>
 </html>
 @endsection
+
+

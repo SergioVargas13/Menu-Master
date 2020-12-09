@@ -1,6 +1,4 @@
 @extends('layouts.app')
-
-@section('content')
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -8,19 +6,14 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Sena Web Php|2020</title>
 </head>
-<body >
-
+<body>
     <div class="container" align="center"  style="
 width:60%">
     <h1>Ver Producto</h1>
 <a href="{{ route('pedidos.index') }}"><button type="button" class="btn btn-danger">Volver</button></a>
-    <table class="table table-hover">
-            <thead class="bg-info">
-            <br>
-            <br>
             <h1>Lista de Productos</h1>
             <br>
-            <form method="POST" action="{{ action('PedidoController@saveProducto') }}">
+            <form method="POST" action="{{ action('PedidoController@saveProductoP') }}">
             @csrf
             <input type="hidden" name="pedido_id" value="{{ $pedido_id }}" />
 <div class="container-fluid">
@@ -39,7 +32,7 @@ width:60%">
 @foreach($productos as $pr)
 <tr>
 <td>
-<input type="radio" name="producto_id[]" value="{{$pr->id}}" />
+<input type="checkbox" name="productos_id[]" value="{{$pr->id}}" />
 </td>
 <td>{{$pr->id}}</td>
 <td>{{$pr->name}}</td>

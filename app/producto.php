@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use App\Menu;
 use App\producto;
+use App\pedido;
 class producto extends Model
 {
     //

@@ -3,7 +3,8 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-
+use App\pedido;
+use App\producto;
 class pedido extends Model
 {
     //
