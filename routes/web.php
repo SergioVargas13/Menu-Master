@@ -39,9 +39,9 @@ Route::resource('categoria', 'CategoriaController');
 Route::resource('menu', 'MenuController');
 
 Route::middleware('auth')->get('showProducto/{menu_id}','MenuController@showProducto')->name('menu.showProducto');
-Route::middleware('auth')->get('addProducto/{menu_id}','MenuController@addProducto')->name('menu.addProducto');
-Route::middleware('auth')->post('saveProducto','MenuController@saveProducto');
-Route::middleware('auth')->delete('deleteProducto/{menu_id}/{producto_id}', 'MenuController@deleteProducto')->name('menu.deleteProducto');
+Route::middleware('auth')->get('addProductoM/{menu_id}','MenuController@addProductoM')->name('menu.addProductoM');
+Route::middleware('auth')->post('saveProductoM','MenuController@saveProductoM');
+Route::middleware('auth')->delete('deleteProductoM/{menu_id}/{producto_id}', 'MenuController@deleteProductoM')->name('menu.deleteProductoM');
 
 Route::middleware('auth')->get('show/{pedido_id}','PedidoController@show')->name('pedidos.show');
 Route::middleware('auth')->get('addProducto/{pedido_id}','PedidoController@addProducto')->name('pedidos.addProducto');

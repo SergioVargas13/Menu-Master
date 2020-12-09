@@ -28,6 +28,8 @@ width:60%">
                 <input type="hidden" name="_method" value="DELETE">
                 <button class=" btn btn-danger" >Eliminar</button>
                 </form>
+                <a method="get" href="{{ route('menu.showProducto',['menu_id'=>$m->id]) }}" class=" fa fa-eye btn btn-warning">Ver Productos</a>
+
                 </td>
                </tr>
                @endforeach

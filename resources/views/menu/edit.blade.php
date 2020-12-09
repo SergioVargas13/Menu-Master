@@ -15,7 +15,7 @@ width:30%">
     <form method="POST" action="{{ route('menu.update',['menu'=>$menu->id]) }}">
         @csrf
         {{ method_field('PUT') }}
-        <input type="text" name="nombre" value="{{ $m->nombre }}" class="form-control" id="formGroupExampleInput">
+        <input type="text" name="nombre" value="{{ $menu->nombre }}" class="form-control" id="formGroupExampleInput">
         <input type="submit" name="Guardar" class="btn btn-primary">
         <a href="{{ route('menu.index') }}"><button type="button" class="btn btn-danger">Cancelar</button></a>
     </form>

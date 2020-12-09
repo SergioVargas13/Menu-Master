@@ -108,21 +108,21 @@ class MenuController extends Controller
         return redirect()->action('MenuController@index');
     }
 
-    public function deleteProducto($menu_id,$producto_id) {
+    public function deleteProductoM($menu_id,$producto_id) {
         $menus = Menu::find($menu_id);
         $menus->productos()->detach($producto_id);
         return redirect()->route('menu.showProducto',['menu_id'=>$menu_id]);
     }
 
-    public function addProducto($menu_id) {
+    public function addProductoM($menu_id) {
         $menus = Menu::find($menu_id);
         $ids = $menus->productos->pluck('id')->toArray();
         $productos = producto::whereNotIn('id', $ids)->get();
-        return view('menu.lista_producto', 
+        return view('menu.lista_productom', 
         ['menu_id'=>$menu_id, 'productos'=>$productos]);
     }
 
-    public function saveProducto(Request $request) {
+    public function saveProductoM(Request $request) {
         $menu_id=$request->menu_id;
         $menus = Menu::find($menu_id);
         if ($request->productos_id) {
