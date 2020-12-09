@@ -12,7 +12,7 @@
 		Subtotal:<input type="number" name="subtotal"/><br>
 		Cantidad:<input type="number" name="cantidad"/><br>
 		Fecha:<input type="date" name="fecha"/><br>
-		Comentarios:<input type="text" name="comentarios"/><br>
+		Comentarios:<input type="text" name="comentario"/><br>
 	
 		<input type="submit" name="Agregar">
 

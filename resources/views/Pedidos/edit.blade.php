@@ -12,7 +12,7 @@
 		Subtotal:<input type="boolean" name="subtotal" value="{{$pedido->subtotal}}" /><br>
 		Cantidad:<input type="number" name="cantidad" value="{{$pedido->cantidad}}" /><br>
 		Fecha:<input type="date" name="fecha" value="{{$pedido->fecha}}" /><br>
-		Comentarios:<input type="text" name="comentarios" value="{{$pedido->comentarios}}" /><br>
+		Comentarios:<input type="text" name="comentario" value="{{$pedido->comentario}}" /><br>
 
 		<input type="submit" name="Enviar">
 

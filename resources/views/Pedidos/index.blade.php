@@ -24,7 +24,7 @@
 	           	<td>{{$pedido->subtotal}}</td>
 	           	<td>{{$pedido->cantidad}}</td>
 	           	<td>{{$pedido->fecha}}</td>	
-	           	<td>{{$pedido->comentarios}}</td>           	
+	           	<td>{{$pedido->comentario}}</td>           	
 	           	<td>
 	           		<form method="POST" action="{{route('pedidos.destroy', ['pedido'=>$pedido->id])}}">
 	           			@csrf

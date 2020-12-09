@@ -29,9 +29,9 @@ class PedidoController extends Controller
     public function create()
     {
         //
-        $productos = producto::all();
+        //$productos = producto::all();
         $pedidos = pedido::all();
-        return view('pedidos.created',['productos'=>$productos]);
+        return view('pedidos.created',['pedido'=>$pedidos]);
     }
 
     /**
@@ -43,14 +43,16 @@ class PedidoController extends Controller
     public function store(Request $request)
     {
         //
-        $pedido =new pedido();
-        $pedido->estado=$request->estado;
-        $pedido->subtotal=$request->subtotal=0;
-        $pedido->cantidad=$request->cantidad;
-        $pedido->fecha=$request->fecha;
-        $pedido->comentario=$request->comentario;
-        $pedido->producto_id=$request->producto_id;
-        $pedido->save();
+        $pedidos =new pedido();
+        $pedidos->estado=$request->estado;
+        $pedidos->subtotal=$request->subtotal=0;
+        $pedidos->cantidad=$request->cantidad;
+        $pedidos->fecha=$request->fecha;
+        $pedidos->comentario=$request->comentario;
+        //$pedidos->producto_id=$request->producto_id;
+        /*echo var_dump($pedidos->comentario);
+        return;*/
+        $pedidos->save();
         return redirect()->action('PedidoController@index');
     }
 
@@ -63,8 +65,8 @@ class PedidoController extends Controller
     public function show(pedido $pedido)
     {
         //
-        $pedido=pedido::find($id);
-        return view('pedidos.show', ['pedido'=>$pedido]);
+        $pedidos=pedido::find($id);
+        return view('pedidos.show', ['pedido'=>$pedidos]);
     }
 
     /**
@@ -76,9 +78,9 @@ class PedidoController extends Controller
     public function edit($id)
     {
         //
-        $productos = producto::all();
-        $pedido = pedido::find($id);
-        return view('pedidos.edit',['pedido' =>$pedido, 'productos'=>$productos]);
+        //$productos = producto::all();
+        $pedidos = pedido::find($id);
+        return view('pedidos.edit',['pedido' =>$pedidos, 'productos'=>$productos]);
     }
 
     /**
@@ -91,14 +93,14 @@ class PedidoController extends Controller
     public function update(Request $request, $id)
     {
         //
-        $pedido = pedido::find($id);
-        $pedido->estado=$request->estado;
-        $pedido->subtotal=$request->subtotal;
-        $pedido->cantidad=$request->cantidad;
-        $pedido->fecha=$request->fecha;
-        $pedido->comentario=$request->comentario;
-        $pedido->producto_id=$request->producto_id;
-        $pedido->save();
+        $pedidos = pedido::find($id);
+        $pedidos->estado=$request->estado;
+        $pedidos->subtotal=$request->subtotal;
+        $pedidos->cantidad=$request->cantidad;
+        $pedidos->fecha=$request->fecha;
+        $pedidos->comentario=$request->comentario;
+        //$pedidos->producto_id=$request->producto_id;
+        $pedidos->save();
         return redirect()->action('pedidoController@index');
     }
 
@@ -111,19 +113,19 @@ class PedidoController extends Controller
     public function destroy($id)
     {
         //
-           $pedido= pedido::find($id);
-           $pedido->delete();
+           $pedidos= pedido::find($id);
+           $pedidos->delete();
               return redirect()->action('pedidoController@index');
     }
     public function deleteProducto($pedido_id,$producto_id) {
-        $pedido = pedido::find($pedido_id);
-        $pedido->productos()->detach($producto_id);
+        $pedidos = pedido::find($pedido_id);
+        $pedidos->productos()->detach($producto_id);
         return redirect()->route('pedidos.show',['pedido_id'=>$pedido_id]);
     }
 
     public function addProducto($pedido_id) {
-        $pedido = pedido::find($pedido_id);
-        $ids = $pedido->productos->pluck('id')->toArray();
+        $pedidos = pedido::find($pedido_id);
+        $ids = $pedidos->productos->pluck('id')->toArray();
         $producto = producto::whereNotIn('id', $ids)->get();
         return view('pedidos.lista_productos', 
         ['pedido_id'=>$pedido_id, 'productos'=>$producto]);
@@ -131,10 +133,10 @@ class PedidoController extends Controller
 
     public function saveProducto(Request $request) {
         $pedido_id=$request->pedido_id;
-        $pedido = pedido::find($pedido_id);
+        $pedidos = pedido::find($pedido_id);
         if ($request->producto_id) {
             foreach($request->producto_id as $id) {
-                $pedido->productos()->attach($id);
+                $pedidos->productos()->attach($id);
 
             }
         }

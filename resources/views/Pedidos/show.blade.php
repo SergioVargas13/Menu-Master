@@ -70,7 +70,7 @@ width:60%">
                 <form method="POST" action="{{ route('pedidos.deleteProducto', ['pedido_id'=>$pedido->id, 'producto_id'=>$p->id]) }}">
                 {{ csrf_field() }}
                 <td> 
-<form method="POST" action="{{ route('ubications.deleteHorario', ['ubication_id'=>$ubication->id, 'horario_id'=>$u->id]) }}">
+<form method="POST" action="{{ route('pedidos.deleteProducto', ['pedido_id'=>$pedido->id, 'producto_id'=>$p->id]) }}">
 {{ csrf_field() }}
  <input type="hidden" name="_method" value="DELETE">
  <button class="fa fa-trash btn btn-danger btn-sm">Eliminar</button>
